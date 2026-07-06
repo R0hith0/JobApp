@@ -10,14 +10,14 @@ const app = express();
 app.use(cors());      
 app.use(express.json());
 
-// DB connect
+
 connectDB();
 
-// routes
-const internshipRoutes = require("./routes/internshipRoutes");
-app.use("/internships", internshipRoutes);
 
-// home route
+const internshipRoutes = require("./routes/internshipRoutes");
+app.use("/api/internships", internshipRoutes);
+
+
 app.get("/", (req, res) => {
     res.send("Server is running :D");
 });

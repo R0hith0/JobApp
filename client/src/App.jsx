@@ -1,51 +1,99 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import InternshipCard from "./components/InternshipCard";
+import "./App.css";
 
 function App() {
   const [internships, setInternships] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  const [search, setSearch] = useState("");
+  const [filter, setFilter] = useState("ALL");
 
   useEffect(() => {
-    fetchData();
+    axios
+      .get("http://localhost:3000/api/internships")
+      .then((res) => {
+        const data = Array.isArray(res.data)
+          ? res.data
+          : res.data.data;
+
+        setInternships(data || []);
+        setLoading(false);
+      })
+      .catch(() => {
+        setInternships([]);
+        setLoading(false);
+      });
   }, []);
 
-  const fetchData = async () => {
-    try {
-      const res = await axios.get("http://localhost:3000/internships");
+  
+  const filteredInternships = internships.filter((item) => {
+    const matchesSearch =
+      item.companyName?.toLowerCase().includes(search.toLowerCase()) ||
+      item.role?.toLowerCase().includes(search.toLowerCase());
 
-      console.log("FULL RESPONSE:", res);
-      console.log("DATA ONLY:", res.data);
+    const matchesFilter =
+      filter === "ALL" ||
+      item.workMode?.toUpperCase() === filter;
 
-      setInternships(res.data.data);
-    } catch (err) {
-      console.log("ERROR:", err);
-    }
-  };
+    return matchesSearch && matchesFilter;
+  });
 
   return (
-    <div style={{ padding: "20px" }}>
-      <h1>Internship Tracker 🚀</h1>
+    <div className="app">
 
-      <h3>Debug count: {internships.length}</h3>
+      
+      <header className="topbar">
 
-      {internships.length === 0 ? (
-        <p>No internships found</p>
-      ) : (
-        internships.map((item) => (
-          <div
-            key={item._id}
-            style={{
-              border: "1px solid black",
-              margin: "10px",
-              padding: "10px"
-            }}
-          >
-            <h2>{item.companyName}</h2>
-            <p>{item.role}</p>
-            <p>{item.workMode}</p>
-            <p>{item.stipend}</p>
+        <div className="logo">
+          Internship Tracker
+        </div>
+
+        <input
+          type="text"
+          placeholder="Search company or role..."
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          className="topbar-search"
+        />
+
+        <select
+          value={filter}
+          onChange={(e) => setFilter(e.target.value)}
+          className="topbar-select"
+        >
+          <option value="ALL">All</option>
+          <option value="REMOTE">Remote</option>
+          <option value="ONSITE">Onsite</option>
+          <option value="HYBRID">Hybrid</option>
+        </select>
+
+      </header>
+
+     
+      <main className="container">
+
+        {loading ? (
+          <p>Loading...</p>
+        ) : filteredInternships.length === 0 ? (
+          <p>No internships found</p>
+        ) : (
+          <div className="grid">
+            {filteredInternships.map((item, index) => (
+              <InternshipCard
+                key={index}
+                companyName={item.companyName}
+                role={item.role}
+                workMode={item.workMode}
+                stipend={item.stipend}
+              />
+            ))}
           </div>
-        ))
-      )}
+        )}
+
+      </main>
+
     </div>
   );
 }
