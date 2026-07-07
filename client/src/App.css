@@ -1,71 +1,29 @@
-.card {
-  background: white;
-  border-radius: 14px;
-  padding: 16px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-  transition: all 0.25s ease;
-  border: 1px solid transparent;
-}
+/* =========================
+   GLOBAL LAYOUT
+========================= */
 
-.card:hover {
-  transform: translateY(-6px);
-  border: 1px solid #3b82f6;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
-}
-
-.card-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.card-top h2 {
-  font-size: 18px;
+body {
   margin: 0;
-  color: #111827;
-}
-
-.role {
-  margin-top: 10px;
-  color: #4b5563;
-  font-size: 14px;
-}
-
-.card-bottom {
-  margin-top: 12px;
-}
-
-.stipend {
-  font-weight: bold;
-  color: #111827;
-}
-.sidebar {
-  position: fixed;
-  top: 100px;
-  left: 20px;
-  width: 240px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  padding: 16px;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  background: #f5f7fb;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .container {
-  padding: 20px;
-  max-width: 1000px;
+  max-width: 1200px;
   margin: auto;
-  margin-left: 280px; /* gives space for sidebar */
+  padding: 30px 20px;
 }
+
+/* =========================
+   TOP BAR
+========================= */
 
 .topbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
-  padding: 15px 20px;
+  gap: 20px;
+  padding: 16px 24px;
   background: #111827;
   color: white;
   position: sticky;
@@ -73,25 +31,170 @@
   z-index: 100;
 }
 
-/* logo */
 .logo {
-  font-size: 18px;
+  font-size: 26px;
   font-weight: bold;
 }
 
-/* search */
 .topbar-search {
   flex: 1;
-  max-width: 500px;
-  padding: 10px;
-  border-radius: 8px;
+  max-width: 550px;
+  padding: 12px 16px;
   border: none;
+  border-radius: 10px;
   outline: none;
+  font-size: 15px;
 }
 
-/* filter */
 .topbar-select {
-  padding: 10px;
-  border-radius: 8px;
+  padding: 12px;
   border: none;
+  border-radius: 10px;
+  font-size: 15px;
+}
+
+/* =========================
+   GRID
+========================= */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 320px));
+  justify-content: center;
+  gap: 24px;
+}
+
+/* =========================
+   CARD
+========================= */
+
+.card {
+  background: white;
+  border-radius: 18px;
+  padding: 22px;
+  min-height: 220px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid transparent;
+  transition: all 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  border-color: #7c3aed;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.12);
+}
+
+/* =========================
+   CARD HEADER
+========================= */
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-header h2 {
+  margin: 0;
+  font-size: 24px;
+  color: #111827;
+}
+
+/* =========================
+   JOB TITLE
+========================= */
+
+.company-name {
+  font-size: 13px;
+  font-weight: 400;
+  color: #909baf;
+  margin: 0 0 8px 0;
+  letter-spacing: 0.2px;
+}
+
+.job-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #111827;
+  margin: 0;
+  letter-spacing: -0.2px;
+}
+
+/* =========================
+   INFO
+========================= */
+
+.card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: #4b5563;
+  font-size: 15px;
+}
+
+/* =========================
+   WORK MODE BADGES
+========================= */
+
+.mode {
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: bold;
+  color: white;
+  text-transform: uppercase;
+}
+
+.remote {
+  background: #10b981;
+}
+
+.onsite {
+  background: #ef4444;
+}
+
+.hybrid {
+  background: #f59e0b;
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+
+.details-btn {
+  padding: 8px 16px;
+  border-radius: 8px;
+
+  background: #111827;
+  color: white;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  border: none;
+  cursor: pointer;
+}
+
+.card-footer {
+  margin: 20px -22px -22px;
+  padding: 16px 22px;
+
+  background: #f8fafc;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  border-radius: 0 0 18px 18px;
+}
+.location {
+  margin: 0;
+  font-size: 14px;
+  color: #6b7280;
 }

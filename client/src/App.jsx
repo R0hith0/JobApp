@@ -8,7 +8,7 @@ function App() {
   const [loading, setLoading] = useState(true);
 
   const [search, setSearch] = useState("");
-  const [filter, setFilter] = useState("ALL");
+  const [filter, setFilter] = useState("All");
 
   useEffect(() => {
     axios
@@ -34,7 +34,7 @@ function App() {
       item.role?.toLowerCase().includes(search.toLowerCase());
 
     const matchesFilter =
-      filter === "ALL" ||
+      filter === "All" ||
       item.workMode?.toUpperCase() === filter;
 
     return matchesSearch && matchesFilter;
