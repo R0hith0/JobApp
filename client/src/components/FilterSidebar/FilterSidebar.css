@@ -12,6 +12,12 @@
 
   background: white;
 
+  position: sticky;
+
+  top: 20px;
+
+  height: fit-content;
+
 }
 
 
@@ -71,11 +77,82 @@
 
 
 .filter-option input {
+  display:none;
+}
 
-  width: 16px;
 
-  height: 16px;
+.custom-checkbox {
 
-  cursor: pointer;
+  width:16px;
+  height:16px;
+
+  border:1px solid #d1d5db;
+
+  border-radius:4px;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  font-size:12px;
+
+  font-weight:700;
+
+  color:white;
+
+  transition:0.2s ease;
+
+}
+
+
+.filter-option input:checked + .custom-checkbox {
+
+  background:#111827;
+
+  border-color:#111827;
+
+}
+.filter-header {
+
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:center;
+
+  margin-bottom:24px;
+
+}
+
+
+.filter-sidebar h3 {
+
+  margin:0;
+
+}
+
+
+.clear-filter {
+
+  border:none;
+
+  background:none;
+
+  color:#6b7280;
+
+  font-size:13px;
+
+  cursor:pointer;
+
+  padding:4px 0;
+
+}
+
+
+.clear-filter:hover {
+
+  color:#111827;
 
 }

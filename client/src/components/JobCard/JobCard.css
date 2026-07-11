@@ -1,432 +1,114 @@
-/* =========================
-   ROLE CARD
-========================= */
-
 .job-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 22px;
 
   background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
 
-  border-radius: 24px;
+  padding: 24px;
 
-  padding: 22px;
-
-  min-height: 230px;
-
-  display: flex;
-
-  flex-direction: column;
-
-  justify-content: space-between;
-
-
-  border: none;
-
-
-  box-shadow: 0 8px 25px rgba(0,0,0,0.06);
-
-
-  transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease;
-
+  transition: 0.25s ease;
+  cursor: pointer;
 }
-
 
 .job-card:hover {
-
-  transform: translateY(-6px);
-
-  box-shadow: 0 14px 30px rgba(0,0,0,0.10);
-
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
 }
 
-
-
-/* =========================
-   INNER HEADER CARD
-========================= */
-
-.job-card-header {
-
-  display: flex;
-
-  flex-direction: column;
-
-
-  gap: 16px;
-
-
-  background: #f8fafc;
-
+.job-card-logo {
+  width: 64px;
+  height: 64px;
 
   border-radius: 16px;
 
-
-  padding: 22px;
-
-
-  height: 130px;
-
-
-  overflow: hidden;
-
-}
-
-
-
-
-
-/* =========================
-   COMPANY SECTION
-========================= */
-
-
-.job-card-company-section {
-
-  display: flex;
-
-  align-items: center;
-
-
-  gap: 16px;
-
-}
-
-
-
-
-
-/* =========================
-   LOGO
-========================= */
-
-
-.job-card-logo {
-
-  width: 50px;
-
-  height: 50px;
-
-
-  border-radius: 50%;
-
-
   background: #111827;
-
-
   color: white;
 
-
   display: flex;
-
-
   align-items: center;
-
-
   justify-content: center;
 
-
-  font-size: 18px;
-
-
+  font-size: 24px;
   font-weight: 700;
-
 
   flex-shrink: 0;
 
-
   overflow: hidden;
-
 }
 
-
-
-
-
-/* =========================
-   COMPANY NAME
-========================= */
-
-
-.job-card-company {
-
-  margin: 0;
-
-
-  font-size: 13px;
-
-
-  font-weight: 500;
-
-
-  color: #6b7280;
-
-
-  white-space: nowrap;
-
-
-  overflow: hidden;
-
-
-  text-overflow: ellipsis;
-
+.job-card-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
+.job-card-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
 
-
-
-
-/* =========================
-   ROLE TITLE
-========================= */
-
+.job-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
 
 .job-card-title {
+  margin: 0;
 
-  margin: 6px 0 0;
-
-
-  font-size: 22px;
-
-
+  font-size: 24px;
   font-weight: 700;
+  color: #111827;
+}
 
+.job-card-company {
+  margin-top: 6px;
+
+  font-size: 15px;
+  color: #6b7280;
+}
+
+.job-card-salary {
+  font-size: 16px;
+
+  font-weight: 600;
 
   color: #111827;
 
-
-  line-height: 1.3;
-
-
-  display: -webkit-box;
-
-
-  -webkit-line-clamp: 2;
-
-
-  -webkit-box-orient: vertical;
-
-
-  overflow: hidden;
-
+  margin-top: 4px;
 }
 
-
-
-
-
-/* =========================
-   PILLS CONTAINER
-========================= */
-
-
-.job-card-tags {
-
+.job-card-meta {
   display: flex;
-
-
-  gap: 8px;
-
+  gap: 10px;
 
   flex-wrap: wrap;
 
-
-  height: 26px;
-
-
-  overflow: hidden;
-
+  font-size: 14px;
+  color: #6b7280;
 }
 
-
-
-
-
-/* =========================
-   PILLS
-========================= */
-
+.job-card-tags {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
 
 .job-card-tag {
-
-  background: white;
-
-
-  border: 1px solid #e5e7eb;
-
+  background: #f3f4f6;
 
   color: #374151;
 
-
-  padding: 4px 10px;
-
+  padding: 6px 12px;
 
   border-radius: 999px;
 
-
-  font-size: 11px;
-
-
-  font-weight: 600;
-
-
-  height: 18px;
-
-
-  display: flex;
-
-
-  align-items: center;
-
-
-  white-space: nowrap;
-
-}
-
-
-
-
-
-/* =========================
-   INFO
-========================= */
-
-
-.job-card-info {
-
-  margin-top: 24px;
-
-}
-
-
-
-
-
-.job-card-salary {
-
-  margin: 0;
-
-
-  font-size: 15px;
-
-
-  font-weight: 600;
-
-
-  color: #111827;
-
-}
-
-
-
-
-
-.job-card-status {
-
-  margin: 6px 0 0;
-
-
-  font-size: 14px;
-
-
-  color: #10b981;
-
-}
-
-
-
-
-
-/* =========================
-   FOOTER
-========================= */
-
-
-.job-card-footer {
-
-  margin-top: 20px;
-
-
-  padding: 0;
-
-
-  background: transparent;
-
-
-  display: flex;
-
-
-  justify-content: space-between;
-
-
-  align-items: center;
-
-}
-
-
-
-
-
-.job-card-location {
-
-  margin: 0;
-
-
-  font-size: 14px;
-
-
-  color: #6b7280;
-
-}
-
-
-
-
-
-/* =========================
-   BUTTON
-========================= */
-
-
-.job-card-button {
-
-  border: none;
-
-
-  background: #111827;
-
-
-  color: white;
-
-
-  padding: 9px 16px;
-
-
-  border-radius: 8px;
-
-
-  cursor: pointer;
-
-
-  font-size: 14px;
-
+  font-size: 13px;
 
   font-weight: 500;
-
-
-  transition: 0.2s ease;
-
-}
-
-
-
-
-
-.job-card-button:hover {
-
-  background: #000;
-
-
-  transform: translateY(-2px);
-
 }

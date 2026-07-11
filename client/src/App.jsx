@@ -83,12 +83,8 @@ function App() {
 
 
     const matchesSchedule =
-
-      filters.schedule.length === 0 ||
-
-      filters.schedule.includes(item.schedule);
-
-
+  filters.schedule.length === 0 ||
+  filters.schedule.includes(item.workingHours);
 
 
 
@@ -103,11 +99,8 @@ function App() {
 
 
     const matchesEmployment =
-
-      filters.employmentType.length === 0 ||
-
-      filters.employmentType.includes(item.employmentType);
-
+  filters.employmentType.length === 0 ||
+  filters.employmentType.includes(item.experienceRequired);
 
 
 

@@ -1,13 +1,11 @@
 .job-grid {
-
   flex: 1;
 
   width: 100%;
 
-  display: grid;
+  display: flex;
 
-  grid-template-columns: repeat(3, 1fr);
+  flex-direction: column;
 
-  gap: 24px;
-
+  gap: 18px;
 }

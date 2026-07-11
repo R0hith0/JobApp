@@ -21,32 +21,50 @@ function FilterSidebar({ filters, setFilters }) {
 
   const FilterOption = ({ category, value, label }) => (
 
-    <label className="filter-option">
+  <label className="filter-option">
 
-      <input
-        type="checkbox"
-        checked={filters[category].includes(value)}
-        onChange={() => toggleFilter(category, value)}
-      />
+    <input
+      type="checkbox"
+      checked={filters[category].includes(value)}
+      onChange={() => toggleFilter(category, value)}
+    />
 
-      <span>
-        {label}
-      </span>
+    <span className="custom-checkbox">
+      {filters[category].includes(value) && "✓"}
+    </span>
 
-    </label>
-  );
+    <span>
+      {label}
+    </span>
+
+  </label>
+);
 
   return (
 
 
     <aside className="filter-sidebar">
 
-      <h3>
+      <div className="filter-header">
 
-        Filters
+  <h3>
+    Filters
+  </h3>
 
-      </h3>
+  <button
+    className="clear-filter"
+    onClick={() =>
+      setFilters({
+        schedule: [],
+        workMode: [],
+        employmentType: []
+      })
+    }
+  >
+    Clear
+  </button>
 
+</div>
       <div className="filter-section">
         <p>
 
@@ -57,9 +75,8 @@ function FilterSidebar({ filters, setFilters }) {
 
           category="schedule"
 
-          value="FULL_DAY"
-
-          label="Full Time"
+          value="9-5"
+         label="9-5"
 
         />
 
@@ -69,9 +86,8 @@ function FilterSidebar({ filters, setFilters }) {
 
           category="schedule"
 
-          value="FLEXIBLE"
-
-          label="Flexible"
+          value="Flexible"
+label="Flexible"
 
         />
 
@@ -163,9 +179,8 @@ function FilterSidebar({ filters, setFilters }) {
 
           category="employmentType"
 
-          value="INTERNSHIP"
-
-          label="Job"
+          value="Fresher"
+label="Fresher"
 
         />
 

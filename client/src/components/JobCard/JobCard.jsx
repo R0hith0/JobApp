@@ -12,44 +12,55 @@ function JobCard({
   return (
     <div className="job-card">
 
-
-      <div className="job-card-header">
-
-
-        <div className="job-card-company-section">
-
-          <div className="job-card-logo">
-            {logo ? (
-              <img src={logo} alt={company} />
-            ) : (
-              company.charAt(0)
-            )}
-          </div>
+      <div className="job-card-logo">
+        {logo ? (
+          <img src={logo} alt={company} />
+        ) : (
+          company.charAt(0)
+        )}
+      </div>
 
 
-          <div>
+      <div className="job-card-content">
 
-            <h2 className="job-card-company">
-              {company}
+        <div className="job-card-top">
+
+          <div className="job-card-main">
+
+            <h2 className="job-card-title">
+              {title}
             </h2>
 
-
-            <h3 className="job-card-title">
-              {title}
-            </h3>
+            <p className="job-card-company">
+              {company}
+            </p>
 
           </div>
-
 
         </div>
 
+
+        <div className="job-card-meta">
+
+          <span>{location}</span>
+
+          <span>•</span>
+
+          <span>{status}</span>
+
+        </div>
+
+
+        <div className="job-card-salary">
+          {salary}
+        </div>
 
 
         <div className="job-card-tags">
 
           {tags.map((tag, index) => (
-            <span
-              className="job-card-tag"
+            <span 
+              className="job-card-tag" 
               key={index}
             >
               {tag}
@@ -61,44 +72,8 @@ function JobCard({
 
       </div>
 
-
-
-
-      <div className="job-card-info">
-
-        <p className="job-card-salary">
-          {salary}
-        </p>
-
-
-        <p className="job-card-status">
-          {status}
-        </p>
-
-
-      </div>
-
-
-
-
-      <div className="job-card-footer">
-
-        <p className="job-card-location">
-          {location}
-        </p>
-
-
-        <button className="job-card-button">
-          View Details
-        </button>
-
-
-      </div>
-
-
     </div>
   );
 }
-
 
 export default JobCard;
