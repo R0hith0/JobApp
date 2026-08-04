@@ -38,7 +38,6 @@ export function AuthProvider({ children }) {
   }, []);
 
 
-
   const login = (token, userData) => {
 
     localStorage.setItem("token", token);
@@ -47,8 +46,6 @@ export function AuthProvider({ children }) {
 
   };
 
-
-
   const logout = () => {
 
     localStorage.removeItem("token");
@@ -56,7 +53,6 @@ export function AuthProvider({ children }) {
     setUser(null);
 
   };
-
 
 
   return (

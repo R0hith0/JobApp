@@ -7,7 +7,6 @@ const {
   loginSchema,
 } = require("../validators/authValidator");
 
-// Register
 const register = async (req, res) => {
   try {
     const validation = registerSchema.safeParse(req.body);
@@ -58,7 +57,6 @@ const register = async (req, res) => {
   }
 };
 
-// Login
 const login = async (req, res) => {
   try {
     const validation = loginSchema.safeParse(req.body);
@@ -109,7 +107,7 @@ const login = async (req, res) => {
   }
 };
 
-// Get Current User
+
 const getCurrentUser = async (req, res) => {
   try {
     const user = await User.findById(req.user.id).select("-password");
