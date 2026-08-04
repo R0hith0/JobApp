@@ -36,7 +36,7 @@ function Login() {
       );
 
 
-      navigate("/Dashboard");
+      navigate("/dashboard");
 
 
     } catch (err) {
