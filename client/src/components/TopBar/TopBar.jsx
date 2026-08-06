@@ -1,11 +1,22 @@
 import "./TopBar.css";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../context/AuthContext";
 
 function TopBar() {
+
+  const { logout } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout();
+    navigate("/login");
+  };
+
   return (
     <div className="topbar">
 
       <div className="brand">
-        IT
+        Project
       </div>
 
 
@@ -18,6 +29,14 @@ function TopBar() {
 
         <button className="settings-btn">
           ⚙
+        </button>
+
+
+        <button 
+          className="logout-btn"
+          onClick={handleLogout}
+        >
+          Logout
         </button>
 
       </div>

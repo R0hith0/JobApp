@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+
 import axios from "axios";
 
 import Header from "../../components/header/header";
@@ -9,9 +10,11 @@ import FilterSidebar from "../../components/FilterSidebar/FilterSidebar";
 import "./Dashboard.css";
 
 function Dashboard() {
+
   const [internships, setInternships] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  
   const [search, setSearch] = useState("");
   const [sort, setSort] = useState("Latest");
 
@@ -79,6 +82,7 @@ function Dashboard() {
   });
 
   return (
+
     <div className="app">
 
       <Header
@@ -104,6 +108,8 @@ function Dashboard() {
           ) : (
             <JobGrid jobs={sortedInternships} />
           )}
+
+          
 
         </DashboardLayout>
 
