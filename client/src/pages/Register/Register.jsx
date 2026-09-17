@@ -44,7 +44,7 @@ function Register() {
       );
 
 
-      navigate("/");
+      navigate("/dashboard");
 
 
     } catch (err) {
