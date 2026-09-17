@@ -17,7 +17,7 @@ const register = async (req, res) => {
       });
     }
 
-    const { name, email, password } = validation.data;
+    const { name, email, password, role } = validation.data;
 
     const existingUser = await User.findOne({ email });
 
@@ -33,10 +33,11 @@ const register = async (req, res) => {
       name,
       email,
       password: hashedPassword,
+      role,
     });
 
     const token = jwt.sign(
-      { id: user._id },
+      { id: user._id, role: user.role },
       process.env.JWT_SECRET,
       { expiresIn: "7d" }
     );
@@ -48,6 +49,7 @@ const register = async (req, res) => {
         id: user._id,
         name: user.name,
         email: user.email,
+        role: user.role,
       },
     });
   } catch (error) {
@@ -86,7 +88,7 @@ const login = async (req, res) => {
     }
 
     const token = jwt.sign(
-      { id: user._id },
+      { id: user._id, role: user.role },
       process.env.JWT_SECRET,
       { expiresIn: "7d" }
     );
@@ -98,6 +100,7 @@ const login = async (req, res) => {
         id: user._id,
         name: user.name,
         email: user.email,
+        role: user.role,
       },
     });
   } catch (error) {
@@ -106,7 +109,6 @@ const login = async (req, res) => {
     });
   }
 };
-
 
 const getCurrentUser = async (req, res) => {
   try {

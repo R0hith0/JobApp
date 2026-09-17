@@ -11,11 +11,11 @@ function Register() {
   const { login } = useAuth();
 
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    password: "",
-  });
-
+  name: "",
+  email: "",
+  password: "",
+  role: "applicant",
+});
   const [error, setError] = useState("");
 
 
@@ -101,6 +101,32 @@ function Register() {
           value={formData.password}
           onChange={handleChange}
         />
+
+        <div className="role-selection">
+  <p>Register as:</p>
+
+  <label>
+    <input
+      type="radio"
+      name="role"
+      value="applicant"
+      checked={formData.role === "applicant"}
+      onChange={handleChange}
+    />
+    Applicant
+  </label>
+
+  <label>
+    <input
+      type="radio"
+      name="role"
+      value="recruiter"
+      checked={formData.role === "recruiter"}
+      onChange={handleChange}
+    />
+    Recruiter
+  </label>
+</div>
 
 
         <button type="submit">
