@@ -1,3 +1,4 @@
+
 import { useNavigate } from "react-router-dom";
 import "./JobCard.css";
 
@@ -10,7 +11,9 @@ function JobCard({
   location = "Location TBD",
   status = "Accepting applications",
   logo,
-})  {
+}) {
+  const navigate = useNavigate();
+
   return (
     <div className="job-card">
 
@@ -21,7 +24,6 @@ function JobCard({
           company.charAt(0)
         )}
       </div>
-
 
       <div className="job-card-content">
 
@@ -41,7 +43,6 @@ function JobCard({
 
         </div>
 
-
         <div className="job-card-meta">
 
           <span>{location}</span>
@@ -52,29 +53,29 @@ function JobCard({
 
         </div>
 
-
         <div className="job-card-salary">
           {salary}
         </div>
 
-
         <div className="job-card-tags">
 
-  {tags.map((tag, index) => (
-    <span
-      className="job-card-tag"
-      key={index}
-    >
-      {tag}
-    </span>
-  ))}
+          {tags.map((tag, index) => (
+            <span
+              className="job-card-tag"
+              key={index}
+            >
+              {tag}
+            </span>
+          ))}
 
-  <button className="view-job-button">
-    View Details
-  </button>
+          <button
+            className="view-job-button"
+            onClick={() => navigate(`/jobs/${job._id}`)}
+          >
+            View Details
+          </button>
 
-</div>
-
+        </div>
 
       </div>
 
@@ -83,3 +84,7 @@ function JobCard({
 }
 
 export default JobCard;
+
+
+
+

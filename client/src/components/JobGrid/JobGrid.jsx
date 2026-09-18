@@ -1,7 +1,6 @@
 import JobCard from "../JobCard/JobCard";
 import "./JobGrid.css";
 
-
 function JobGrid({ jobs = [] }) {
 
   return (
@@ -11,6 +10,7 @@ function JobGrid({ jobs = [] }) {
 
         <JobCard
           key={index}
+          job={item}
           company={item.companyName}
           title={item.role}
           salary={item.stipend}
@@ -23,6 +23,5 @@ function JobGrid({ jobs = [] }) {
     </div>
   );
 }
-
 
 export default JobGrid;
