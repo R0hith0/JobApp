@@ -3,6 +3,7 @@ import Dashboard from "./pages/Dashboard/Dashboard";
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
+import PostJob from "./pages/Recruiter/PostJob/PostJob";
 
 
 function App() {
@@ -10,6 +11,11 @@ function App() {
     <BrowserRouter>
 
       <Routes>
+
+        <Route
+  path="/recruiter/post-job"
+  element={<PostJob />}
+/>
 
         <Route
           path="/"
